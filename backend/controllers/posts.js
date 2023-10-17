@@ -43,10 +43,8 @@ async function create(req, res) {
 //   postData.user = req.user._id;
 //   postData.userName = req.user.name;
 //   postData.userAvatar = req.user.avatar;
-
   try {
-    const createdPost = await Post.create(postData);
-    res.json(createdPost)
+    res.json(await Post.create(postData))
   } catch (error) {
     res.status(400).json(error);
   }

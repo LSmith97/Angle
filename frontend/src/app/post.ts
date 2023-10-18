@@ -1,4 +1,4 @@
-interface Comment {
+export interface Comment {
     _id: string,
     parentId: string,
     body: string
@@ -8,7 +8,7 @@ interface Comment {
     userAvatar?: string,
 }
 
-export interface Post extends Comment{
+export interface Post {
     _id: string,
     title: string,  
     body: string,

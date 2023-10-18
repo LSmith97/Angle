@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Post } from '../../post';
 
 @Component({
   selector: 'app-index',
@@ -8,6 +9,15 @@ import { CommonModule } from '@angular/common';
   templateUrl: './index.component.html',
   styleUrls: ['./index.component.css']
 })
-export class IndexComponent {
 
+export class IndexComponent {
+  testPost: Post = {
+    _id: "1",
+    title: "Test",
+    body: "Hello World",
+    isEdited: false,
+    comments: [],
+    user: "User id",
+    userName: "Username",
+  }
 }

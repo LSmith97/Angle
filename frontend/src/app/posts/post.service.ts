@@ -1,17 +1,19 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http'
+import { Post } from './post';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-
 export class PostService {
+  url = 'http://localhost:4000/posts';
 
-  constructor(
-    private http: HttpClient
-  ) {}
+  async getPosts(): Promise<Post[]> {
+    const data = await fetch(this.url);
+    return (await data.json()) ?? [];
+  }
 
-  getPosts() {
-    
+  async getPostById(id: Number): Promise<Post | undefined> {
+    const data = await fetch(`${this.url}/${id}`);
+    return (await data.json()) ?? {};
   }
 }

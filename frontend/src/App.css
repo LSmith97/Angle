@@ -1,0 +1,21 @@
+.App {
+    display: grid;
+    grid-template:
+    "header header" auto
+    "sidebar main" auto
+    / 1fr 5fr;
+    gap: 1rem;
+}
+
+header {
+    grid-area: header;
+}
+
+.sidebar {
+    grid-area: sidebar;
+}
+
+main {
+    grid-area: main;
+    min-height: 80vmin;
+}

@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Post } from '../post';
 
 @Component({
   selector: 'app-post-container',
@@ -9,5 +10,5 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./post-container.component.css']
 })
 export class PostContainerComponent {
-
+  @Input() post!: Post;
 }

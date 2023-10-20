@@ -16,4 +16,19 @@ export class PostService {
     const data = await fetch(`${this.url}/${id}`);
     return (await data.json()) ?? {};
   }
+
+  async create(data: Post): Promise<Post | undefined>  {
+    const res = await fetch(this.url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+    if (res.ok) {
+      return res.json();
+    } else {
+      throw new Error("Invalid Request");
+    }
+  }
 }

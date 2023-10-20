@@ -9,11 +9,11 @@ export interface Comment {
 }
 
 export interface Post {
-    _id: string,
+    _id?: string,
     title: string,  
     body: string,
-    comments: Array<Comment> 
-    isEdited: boolean,
+    comments?: Array<Comment> 
+    isEdited?: boolean,
     user?: string,
     userName?: string,
     userAvatar?: string,

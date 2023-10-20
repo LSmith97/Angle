@@ -1,20 +1,19 @@
 # Mingo
 
-##### Mingo is a minimalist, text-based app (inspired by Twitter) that allows for users to create subject-based posts and respond with comments.
+##### Mingo is a minimalist, text-based app that allows for users to create subject-based posts and respond with comments.
 
 ##Credits
 
-###### Created by Joshua Hsu, Harkirat Singh, and Lily Smith
+###### Created by Joshua Hsu and Lily Smith
 
 Joshua Hsu: [GitHub](https://github.com/jhsu79) | [LinkedIn](https://www.linkedin.com/in/joshuanhsu) |
-Harkirat Singh: [GitHub](https://github.com/harkirats043) | [LinkedIn](https://www.linkedin.com/in/harkirat-singh-hanzra/) |  
 Lily Smith: [GitHub](https://github.com/LSmith97) | [LinkedIn](https://www.linkedin.com/in/lilliana-r-smith/) |
 
 ## Screenshot(s)
 
 ## Getting Started
 
-<h2>How do I use Mingo? </h2>
+<h2>How do I use _____? </h2>
 
 <h4> To view posts, click on:</h4>
 <ul>
@@ -72,6 +71,7 @@ Lily Smith: [GitHub](https://github.com/LSmith97) | [LinkedIn](https://www.linke
 ## Icebox Features
 
 - Categories/Groups pagination
-- Direct messaging between users
 - Filter, Sort, Search functionality
 - Real-time notifications
+- Direct messaging between users
+

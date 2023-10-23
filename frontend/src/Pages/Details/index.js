@@ -1,11 +1,11 @@
-import post from "../../../../backend/models/post"
 import PostContainer from "../../Components/PostContainer"
+import CommentList from "../../Components/CommentsList"
 
 function Details({post, comment}) {
     return( 
         <div>
         <PostContainer/> 
-        <CommentContainer/> 
+        <CommentList/> 
         </div>
     )
 }

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
-import { getPosts } from "../../utilities/post-service"
+import { getPosts  } from "../../utilities/post-service"
+import PostContainer from "../../Components/PostContainer"
 import './Posts.css'
 
 function Posts() {
@@ -33,6 +34,7 @@ function Posts() {
     return(
         <>
             {postList ? loaded() : loading()}
+
         </>
     )
 }

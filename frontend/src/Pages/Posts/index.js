@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { getPosts  } from "../../utilities/post-service"
+import { getPosts } from "../../Utilities/post-service"
 import PostContainer from "../../Components/PostContainer"
 import './Posts.css'
 
@@ -19,9 +19,15 @@ function Posts() {
         }
     }
 
-    function loaded(){
+    function loaded() {
+        const postEles = postList.map((post) => {
+            return <PostContainer key={post._id} post={post} />
+        });
+
         return(
-            <h1>loaded</h1>
+            <div>
+                {postEles}
+            </div>
         )
     }
 
@@ -32,9 +38,8 @@ function Posts() {
     }
 
     return(
-        <>
+        <div>
             {postList ? loaded() : loading()}
-
         </>
     )
 }

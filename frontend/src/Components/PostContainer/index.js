@@ -1,3 +1,5 @@
+import "./PostContainer.css"
+
 function PostContainer({ post }) {
   return (
     <div class="post-container">
@@ -14,4 +16,4 @@ function PostContainer({ post }) {
   );
 }
 
-export default PostContainer;
+export default PostContainer

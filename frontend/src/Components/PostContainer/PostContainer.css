@@ -1,12 +1,14 @@
 .post-container {
+    margin-right: 1rem;
     display: flex;
     flex-direction: column;
-    align-items: start;
-    justify-content: end;
+    align-items: flex-start;
+    justify-content: flex-end;
     padding: 0rem 1rem 0rem 1rem; 
     border: 2px solid black;
     border-radius: .5rem;
 }
+
 .post-header { 
     display: flex; 
     align-items: center;
@@ -15,10 +17,12 @@
     border-bottom: 1px solid black;
     font-size: .75rem; 
 }
+
 .post-title { 
     font-weight: bold; 
     font-size: 1rem; 
 }
+
 .post-footer { 
     display: flex; 
     justify-content: flex-end;

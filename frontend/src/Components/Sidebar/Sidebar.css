@@ -6,7 +6,11 @@
     padding: 1rem;
     display: flex;
     flex-direction: column;
-} 
+}
+
+.sidebar p:hover {
+    background-color: lightgray;
+}
 
 .sidebar hr {
     width: 100%;

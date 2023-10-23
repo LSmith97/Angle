@@ -1,6 +1,12 @@
-function Details() {
-    return(
-        <h1>Details</h1>
+import PostContainer from "../../Components/PostContainer"
+import CommentList from "../../Components/CommentsList"
+
+function Details({post, comment}) {
+    return( 
+        <div>
+        <PostContainer/> 
+        <CommentList/> 
+        </div>
     )
 }
 

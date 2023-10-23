@@ -21,7 +21,7 @@ function Posts() {
 
     function loaded() {
         const postEles = postList.map((post) => {
-            return <PostContainer post={post} />
+            return <PostContainer key={post._id} post={post} />
         });
 
         return(

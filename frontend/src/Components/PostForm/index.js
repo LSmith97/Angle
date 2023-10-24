@@ -1,3 +1,5 @@
+import "./PostForm.css"
+
 function PostForm({ submit, formData, setFormData }) {
 
   function handleChange(event) {

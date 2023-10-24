@@ -1,0 +1,26 @@
+.post-form { 
+    display: grid;
+    gap: 15px; 
+    grid-template: 
+      "title title " 1fr
+      "body  body " 3fr
+      ".  button" 1fr
+    /1fr 1fr;
+    border-radius: 1rem;
+    padding: 2%;
+    border: 2px solid black;
+}
+
+.post-form input {
+    border: 1px solid black;
+    grid-area: title;
+}
+
+.post-form textarea{
+    border: 1px solid black;
+    grid-area: body;
+}
+
+.post-form button {
+    grid-area: button;
+}

@@ -23,9 +23,7 @@ function NewPost() {
   }
 
   return (
-    <>
       <PostForm submit={handleSubmit} formData={formData} setFormData={setFormData} />
-    </>
   );
 }
 

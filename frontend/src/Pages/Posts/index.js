@@ -40,7 +40,7 @@ function Posts() {
     return(
         <div>
             {postList ? loaded() : loading()}
-        <div/>
+        </div>
     )
 }
 

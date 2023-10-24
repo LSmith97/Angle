@@ -8,6 +8,11 @@
     flex-direction: column;
 }
 
+.sidebar p {
+    margin: 0;
+    padding: .5rem;
+}
+
 .sidebar p:hover {
     background-color: lightgray;
 }

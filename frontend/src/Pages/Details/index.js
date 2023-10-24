@@ -7,7 +7,6 @@ import "./Details.css";
 
 function Details({ post, comment }) {
   const [postDetails, setPostDetails] = useState(null);
-  const [commentDetails, setCommentDetails] = useState(null);
 
   const { id } = useParams();
 
@@ -19,7 +18,6 @@ function Details({ post, comment }) {
     try {
       const postData = await getOne(id);
       setPostDetails(postData);
-      setCommentDetails(postData)
     } catch (err) {
       console.log(err);
     }
@@ -28,8 +26,8 @@ function Details({ post, comment }) {
   function loaded() {
     return (
       <div>
-        <PostContainer post={post} />
-        <CommentList comment={comment}/>
+        <PostContainer post={postDetails} />
+        <CommentList comment={postDetails.comments}/>
       </div>
     );
   }
@@ -39,7 +37,7 @@ function Details({ post, comment }) {
   }
 
   return <div>
-    {postDetails && commentDetails ? loaded() : loading()}
+    {postDetails ? loaded() : loading()}
         </div>;
 }
 

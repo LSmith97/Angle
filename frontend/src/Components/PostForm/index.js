@@ -1,9 +1,8 @@
-import "./PostForm.css"
+import "./PostForm.css";
 
 function PostForm({ submit, formData, setFormData }) {
-
   function handleChange(event) {
-    setFormData({...formData, [event.target.name]: event.target.value })
+    setFormData({ ...formData, [event.target.name]: event.target.value });
   }
 
   return (
@@ -12,6 +11,7 @@ function PostForm({ submit, formData, setFormData }) {
         id="title-input"
         type="text"
         name="title"
+        value={formData.title}
         placeholder="Enter a title"
         onChange={handleChange}
         required
@@ -23,6 +23,7 @@ function PostForm({ submit, formData, setFormData }) {
         cols="25"
         maxlength="500"
         name="body"
+        value={formData.body}
         placeholder=" Enter your post here"
         onChange={handleChange}
         required

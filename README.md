@@ -1,10 +1,11 @@
-# Mingo
+# Angle
 
-##### Mingo is a minimalist, text-based app (inspired by Twitter) that allows for users to create subject-based posts and respond with comments.
+##### Angle is a minimalist, text-based app (inspired by Twitter) that allows for users to create subject-based posts and respond with comments.
 
 ##Credits
 
 ###### Created by Joshua Hsu, Harkirat Singh, and Lily Smith
+###### Inspired by Mingo, a project by Joshua Hsu, Harkirat Singh, and Lily Smith
 
 Joshua Hsu: [GitHub](https://github.com/jhsu79) | [LinkedIn](https://www.linkedin.com/in/joshuanhsu) |
 Harkirat Singh: [GitHub](https://github.com/harkirats043) | [LinkedIn](https://www.linkedin.com/in/harkirat-singh-hanzra/) |  
@@ -14,7 +15,7 @@ Lily Smith: [GitHub](https://github.com/LSmith97) | [LinkedIn](https://www.linke
 
 ## Getting Started
 
-<h2>How do I use Mingo? </h2>
+<h2>How do I use Angle? </h2>
 
 <h4> To view posts, click on:</h4>
 <ul>
@@ -61,13 +62,13 @@ Lily Smith: [GitHub](https://github.com/LSmith97) | [LinkedIn](https://www.linke
 - Node.js
 - HTML
 - CSS
-- TypeScript
+- TailwindCSS
 - JavaScript
 
 ## Acknowledgements
 
 - Comment Icon by <a href="https://www.vecteezy.com/free-vector/abstract">Abstract Vectors by Vecteezy</a>
-- Image logo by <a href="https://www.freepik.com/free-vector/set-pink-flamingos-with-different-poses_2266747.htm#query=flamingo%20icon&position=2&from_view=search&track=ais">Freepik</a>
+- Image logo by <a href="https://www.freepik.com/free-vector/set-pink-flaAngles-with-different-poses_2266747.htm#query=flaAngle%20icon&position=2&from_view=search&track=ais">Freepik</a>
 
 ## Icebox Features
 

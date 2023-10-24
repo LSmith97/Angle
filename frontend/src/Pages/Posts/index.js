@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { getPosts } from "../../Utilities/post-service"
+import { Link } from "react-router-dom"
 import PostContainer from "../../Components/PostContainer"
 import './Posts.css'
 
@@ -21,7 +22,7 @@ function Posts() {
 
     function loaded() {
         const postEles = postList.map((post) => {
-            return <PostContainer key={post._id} post={post} />
+            return <Link to={`/posts/${post._id}`} ><PostContainer key={post._id} post={post} /></Link>
         });
 
         return(

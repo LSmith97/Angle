@@ -5,8 +5,10 @@ import PostContainer from "../../Components/PostContainer";
 import CommentList from "../../Components/CommentsList";
 import "./Details.css";
 
-function Details({ post }) {
+function Details({ post, comment }) {
   const [postDetails, setPostDetails] = useState(null);
+  const [commentDetails, setCommentDetails] = useState(null);
+
   const { id } = useParams();
 
   useEffect(() => {
@@ -17,6 +19,7 @@ function Details({ post }) {
     try {
       const postData = await getOne(id);
       setPostDetails(postData);
+      setCommentDetails(postData)
     } catch (err) {
       console.log(err);
     }
@@ -26,7 +29,7 @@ function Details({ post }) {
     return (
       <div>
         <PostContainer post={post} />
-        <CommentList />
+        <CommentList comment={comment}/>
       </div>
     );
   }
@@ -36,7 +39,7 @@ function Details({ post }) {
   }
 
   return <div>
-    {postDetails ? loaded() : loading()}
+    {postDetails && commentDetails ? loaded() : loading()}
         </div>;
 }
 

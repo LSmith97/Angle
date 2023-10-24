@@ -26,7 +26,7 @@ export async function index() {
   }
   
   export async function detail(id) {
-    const url = BASE_URL + id;
+    const url = `${BASE_URL}/${id}`;
     const res = await fetch(url, {
       method: "GET",
     });
@@ -39,7 +39,7 @@ export async function index() {
   }
   
   export async function destroy(id) {
-    const url = BASE_URL + id;
+    const url = `${BASE_URL}/${id}`;
     const res = await fetch(url, {
       method: "DELETE",
     });

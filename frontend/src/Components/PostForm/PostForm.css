@@ -2,9 +2,9 @@
     display: grid;
     gap: 15px; 
     grid-template: 
-      "title title " 1fr
-      "body  body " 3fr
-      ".  button" 1fr
+      "title title " auto
+      "body  body " auto
+      ".  button" auto
     /1fr 1fr;
     border-radius: 1rem;
     padding: 2%;

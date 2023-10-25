@@ -24,6 +24,16 @@ const indexRouter = require('./routes/index.js')
 ///////////////////////////////
 // Middleware
 ////////////////////////////////
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null, 'uploads/'); // Set your upload destination
+    },
+    filename: function (req, file, cb) {
+      const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1e9);
+      cb(null, file.fieldname + '-' + uniqueSuffix);
+    },
+  });
+const upload = multer({ storage });
 
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
@@ -37,7 +47,7 @@ app.use(multer())
 
 app.use('/posts', postsRouter)
 app.use('/comments', commentsRouter)
-app.use('/uploads', uploadsRouter)
+app.use('/uploads', uploadsRouter(upload))
 app.use('/users', usersRouter)
 app.use('/', indexRouter)
 

@@ -1,12 +1,30 @@
+const { Upload } = require ('../models')
+
 module.exports = {
   create: handleUpload,
-  remove,
-  update: updatePost,
+  remove: removeUpload, 
+  update: updateUpload,
 }
 
-async function handleUpload(file) {
-    const res = await cloudinary.uploader.upload(file, {
-      resource_type: "auto",
+async function handleUpload(req, res) {
+  try {
+    const result = await cloudinary.uploader.upload(req.file.path);
+    const publicId = result.public_id;
+
+    const newUpload = new Upload({
+      publicId: publicId,
+      user: '', // Set the user information
+      description: '', // Set the description
     });
-    return res;
+    newUpload.save((err, upload) => {
+      if (err) {
+        console.error('Error saving to MongoDB:', err);
+        return res.status(500).json({ error: 'File upload and save failed' });
+      }
+      res.json({ publicId: upload.publicId, user: upload.user, description: upload.description });
+    });
+  } catch (error) {
+    console.error('Error uploading to Cloudinary:', error);
+    res.status(500).json({ error: 'File upload failed' });
   }
+};

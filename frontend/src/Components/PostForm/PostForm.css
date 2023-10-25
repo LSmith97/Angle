@@ -1,6 +1,6 @@
 .post-form { 
     display: grid;
-    gap: 15px; 
+    gap: 1rem; 
     grid-template: 
       "title title " auto
       "body  body " auto

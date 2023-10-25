@@ -7,7 +7,7 @@ function NewPost() {
   const [formData, setFormData] = useState({
     title: "",
     body: "",
-  });
+  }); 
 
   const navigate = useNavigate();
 

@@ -11,6 +11,8 @@ const express = require("express");
 const app = express();
 const cors = require("cors")
 const morgan = require("morgan")
+const jwt = require("jsonwebtoken")
+const bcrypt = require("bcrypt")
 
 const postsRouter = require('./routes/posts.js')
 const usersRouter = require('./routes/users.js')

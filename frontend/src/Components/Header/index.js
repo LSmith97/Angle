@@ -10,7 +10,7 @@ function Header() {
         <a href="/">
           <div>Home</div>
         </a>
-        <a href="/">
+        <a href="/login">
           <div>Log in</div>
         </a>
       </nav>

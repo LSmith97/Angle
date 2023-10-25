@@ -66,6 +66,8 @@ async function updatePost(req, res) {
   }
 }
 
+
+
 // async function allPosts(req, res) {
 //   try {
 //     const POSTS_PER_PAGE = 10;

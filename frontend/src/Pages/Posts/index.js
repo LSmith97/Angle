@@ -39,7 +39,7 @@ function Posts() {
     }
 
     return(
-        <div>
+        <div className='post-list'>
             {postList ? loaded() : loading()}
         </div>
     )

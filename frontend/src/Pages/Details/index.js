@@ -5,7 +5,7 @@ import PostContainer from "../../Components/PostContainer";
 import CommentList from "../../Components/CommentsList";
 import "./Details.css";
 
-function Details({ post, comment }) {
+function Details() {
   const [postDetails, setPostDetails] = useState(null);
 
   const { id } = useParams();

@@ -17,12 +17,12 @@ export async function login(user) {
 }
 
 export async function isUserAuth() {
-  const res = await fetch(`${BASE_URL}/login`, {
+  const res = await fetch(`${BASE_URL}/isUserAuth`, {
+    method: "GET",
     headers: {
       "x-access-token": localStorage.getItem("token"),
     },
   });
-
   if (res.ok) {
     return res.json();
   } else {

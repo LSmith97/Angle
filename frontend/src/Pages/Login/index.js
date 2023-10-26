@@ -1,9 +1,10 @@
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { authLogin } from "../../Utilities/auth-service";
+import { authLogin, checkAuth } from "../../Utilities/auth-service";
 import "./Login.css";
 
 function Login() {
+  const [errorMessage, setErrorMessage] = useState("")
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -14,9 +15,9 @@ function Login() {
     event.preventDefault();
     try {
       await authLogin(formData);
-      navigate(`/`);
     } catch (error) {
       console.log(error);
+      setErrorMessage(error)
     }
   }
 
@@ -26,9 +27,11 @@ function Login() {
 
   async function handleRequest() {
     try {
-      
+      const data = await checkAuth();
+      if (data.isLoggedIn) navigate('/')
     } catch (error) {
       console.log(error)
+      setErrorMessage(error)
     }
   }
 

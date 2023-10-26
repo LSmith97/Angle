@@ -14,8 +14,21 @@ function Login() {
     event.preventDefault();
     try {
       await authLogin(formData);
+      navigate(`/`);
     } catch (error) {
       console.log(error);
+    }
+  }
+
+  useEffect(() => {
+    handleRequest()
+  },[])
+
+  async function handleRequest() {
+    try {
+      
+    } catch (error) {
+      console.log(error)
     }
   }
 

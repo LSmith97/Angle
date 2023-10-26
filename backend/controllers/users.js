@@ -3,6 +3,7 @@ const { Post, Comment, User } = require("../models");
 module.exports = {
   create,
   login,
+  checkAuth
 };
 
 async function create(req, res, next) {
@@ -60,4 +61,8 @@ async function login(req, res, next) {
   } catch (error) {
     res.status(400).json(error);
   }
+}
+
+async function checkAuth(req, res, next) {
+  return res.json({isLoggedIn: true, username: req.user.username})
 }

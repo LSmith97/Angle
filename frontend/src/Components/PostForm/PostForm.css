@@ -23,4 +23,6 @@
 
 .post-form button {
     grid-area: button;
+    place-self: center;
+    border-radius: .5rem;
 }

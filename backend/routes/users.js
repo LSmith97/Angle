@@ -3,10 +3,10 @@ const router = express.Router();
 // const ensureLoggedIn = require('../config/ensureLoggedIn');
 const usersCtl = require('../controllers/users')
 
-router.get('/:id', usersCtl.show);
-
+// Login Route
 router.post('/login', usersCtl.login)
 
+// Register Route
 router.post('/register', usersCtl.create)
 
 module.exports = router;

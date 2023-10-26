@@ -10,7 +10,7 @@ export async function login(user) {
     });
     
     if (res.ok) {
-      console.log(res)
+        return res.json();
     } else {
       throw new Error("Invalid Request");
     }

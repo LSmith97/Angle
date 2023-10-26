@@ -1,26 +1,36 @@
-import { useNavigate } from "react-router-dom"
-import { useEffect } from "react"
-import "./Login.css"
+import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { authLogin } from "../../Utilities/auth-service";
+import "./Login.css";
 
 function Login() {
-    const navigate = useNavigate()
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
+  const navigate = useNavigate();
 
-    useEffect(() => {
-
-    }, [])
-
-    function handleSubmit() {
-
+  async function handleSubmit(event) {
+    event.preventDefault();
+    try {
+      await authLogin(formData);
+    } catch (error) {
+      console.log(error);
     }
+  }
 
-    return(
-        <form className="login-form">
-            <h2>Log in:</h2>
-            <input type="email" name="email" placeholder="Email Address" required/>
-            <input type="password" name="password" placeholder="Password" required/>
-            <button type="submit">Submit</button>
-        </form>
-    )
+  function handleChange(event) {
+    setFormData({ ...formData, [event.target.name]: event.target.value });
+  }
+
+  return (
+    <form className="login-form" onSubmit={handleSubmit}>
+      <h2>Log in:</h2>
+      <input type="email" name="email" placeholder="Email Address" value={formData.email} onChange={handleChange} required />
+      <input type="password" name="password" placeholder="Password" value={formData.password} onChange={handleChange} required />
+      <button type="submit">Submit</button>
+    </form>
+  );
 }
 
-export default Login
+export default Login;

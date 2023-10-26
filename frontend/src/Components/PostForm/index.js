@@ -1,6 +1,7 @@
 import "./PostForm.css";
 
 function PostForm({ submit, formData, setFormData }) {
+  
   function handleChange(event) {
     setFormData({ ...formData, [event.target.name]: event.target.value });
   }

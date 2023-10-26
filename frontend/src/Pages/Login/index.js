@@ -6,7 +6,7 @@ import "./Login.css";
 function Login() {
   const [errorMessage, setErrorMessage] = useState("")
   const [formData, setFormData] = useState({
-    email: "",
+    username: "",
     password: "",
   });
   const navigate = useNavigate();
@@ -14,7 +14,8 @@ function Login() {
   async function handleSubmit(event) {
     event.preventDefault();
     try {
-      await authLogin(formData);
+      const data = await authLogin(formData);
+      setErrorMessage(data.message)
     } catch (error) {
       console.log(error);
       setErrorMessage(error)
@@ -42,9 +43,10 @@ function Login() {
   return (
     <form className="login-form" onSubmit={handleSubmit}>
       <h2>Log in:</h2>
-      <input type="email" name="email" placeholder="Email Address" value={formData.email} onChange={handleChange} required />
+      <input type="text" name="username" placeholder="Username" value={formData.username} onChange={handleChange} required />
       <input type="password" name="password" placeholder="Password" value={formData.password} onChange={handleChange} required />
       <button type="submit">Submit</button>
+      { errorMessage ? <p>{errorMessage}</p> : null }
     </form>
   );
 }

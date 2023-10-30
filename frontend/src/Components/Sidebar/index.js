@@ -1,11 +1,12 @@
+import { Link } from "react-router-dom";
 import "./Sidebar.css"
 
 function Sidebar() {
   return (
     <div className="sidebar">
-      <a href="/posts/new">
+      <Link to="/posts/new">
         <p>Make a Post</p>
-      </a>
+      </Link>
       <hr />
       <p>All Posts</p>
       <p>Recent Posts</p>

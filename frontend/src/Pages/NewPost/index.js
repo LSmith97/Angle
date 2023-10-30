@@ -2,8 +2,11 @@ import { useState } from "react";
 import { useNavigate } from "react-router";
 import PostForm from "../../Components/PostForm";
 import { createPost } from "../../Utilities/post-service";
+import { useAuth0 } from "@auth0/auth0-react";
+import LoginPrompt from "../../Components/Auth/LoginPrompt/LoginPrompt";
 
 function NewPost() {
+  const { user, isAuthenticated, isLoading } = useAuth0();
   const [formData, setFormData] = useState({
     title: "",
     body: "",
@@ -23,7 +26,17 @@ function NewPost() {
   }
 
   return (
-      <PostForm submit={handleSubmit} formData={formData} setFormData={setFormData} />
+    <>
+      {!isLoading && isAuthenticated ? (
+        <PostForm
+          submit={handleSubmit}
+          formData={formData}
+          setFormData={setFormData}
+        />
+      ) : (
+        <LoginPrompt />
+      )}
+    </>
   );
 }
 

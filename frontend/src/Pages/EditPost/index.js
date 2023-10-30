@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router";
 import PostForm from "../../Components/PostForm";
 import { useAuth0 } from "@auth0/auth0-react";
 import { getOne, updatePost } from "../../Utilities/post-service";
+import LoginPrompt from "../../Components/Auth/LoginPrompt/LoginPrompt";
 
 function EditPost() {
   const [formData, setFormData] = useState(null);
@@ -44,7 +45,7 @@ function EditPost() {
             setFormData={setFormData}
           />
         ) : (
-          <h2>Please Log in to edit this post</h2>
+          <LoginPrompt />
         )}
       </>
     );

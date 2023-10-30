@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router";
 import PostForm from "../../Components/PostForm";
+import { useAuth0 } from "@auth0/auth0-react";
 import { getOne, updatePost } from "../../Utilities/post-service";
 
 function EditPost() {
   const [formData, setFormData] = useState(null);
-
+  const { user, isAuthenticated, isLoading } = useAuth0();
   const navigate = useNavigate();
   const { id } = useParams();
 
@@ -35,11 +36,17 @@ function EditPost() {
 
   function loaded() {
     return (
-      <PostForm
-        submit={handleSubmit}
-        formData={formData}
-        setFormData={setFormData}
-      />
+      <>
+        {!isLoading && isAuthenticated ? (
+          <PostForm
+            submit={handleSubmit}
+            formData={formData}
+            setFormData={setFormData}
+          />
+        ) : (
+          <h2>Please Log in to edit this post</h2>
+        )}
+      </>
     );
   }
 

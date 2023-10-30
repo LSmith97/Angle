@@ -1,4 +1,5 @@
-import "./Header.css"
+import "./Header.css";
+import LoginButton from "./LoginButton";
 
 function Header() {
   return (
@@ -10,10 +11,9 @@ function Header() {
         <a href="/">
           <div>Home</div>
         </a>
-        <a href="/">
-          <div>Log in</div>
-        </a>
+        <LoginButton />
       </nav>
+      
     </header>
   );
 }

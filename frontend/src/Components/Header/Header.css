@@ -18,7 +18,7 @@ nav {
     justify-content: flex-start;
 }
 
-nav div {
+nav div, nav button{
     text-align: center;
     padding: 1rem 2rem 1rem 2rem;
     border: 2px solid black;

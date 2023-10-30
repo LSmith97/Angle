@@ -1,5 +1,6 @@
 import "./Header.css";
 import LoginButton from "./LoginButton";
+import LogoutButton from "./LogoutButton";
 
 function Header() {
   return (
@@ -12,6 +13,7 @@ function Header() {
           <div>Home</div>
         </a>
         <LoginButton />
+        <LogoutButton />
       </nav>
       
     </header>

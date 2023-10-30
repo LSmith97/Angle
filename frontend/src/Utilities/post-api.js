@@ -2,7 +2,6 @@ const BASE_URL = `${process.env.REACT_APP_BASE_URL}/posts`
 
 export async function index() {
     const res = await fetch(BASE_URL, { method: "GET" });
-    console.log(res)
     if (res.ok) {
       return res.json();
     } else {

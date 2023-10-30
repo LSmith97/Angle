@@ -14,7 +14,7 @@ function Header() {
       </a>
       <nav>
         <a href="/">
-          <div>Home</div>
+          <div className="nav-button">Home</div>
         </a>
         {!isLoading && isAuthenticated ? (
           <>

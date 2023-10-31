@@ -17,7 +17,7 @@ function NewPost() {
   async function handleSubmit(event) {
     event.preventDefault();
     try {
-      await createPost(formData);
+      await createPost({...formData, user});
       navigate(`/`);
     } catch (error) {
       console.log(error);
@@ -31,7 +31,6 @@ function NewPost() {
         submit={handleSubmit}
         formData={{...formData}}
         setFormData={setFormData}
-        user={user}
       />
     );
   }

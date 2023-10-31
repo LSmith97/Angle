@@ -40,6 +40,7 @@ async function remove(req, res) {
 
 async function create(req, res) {
   const postData = { ...req.body };
+  console.log(postData)
   try {
     res.json(await Post.create(postData))
   } catch (error) {

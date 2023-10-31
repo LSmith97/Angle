@@ -43,7 +43,6 @@ function EditPost() {
             submit={handleSubmit}
             formData={formData}
             setFormData={setFormData}
-            user={user}
           />
         ) : (
           <LoginPrompt />

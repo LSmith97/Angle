@@ -2,8 +2,6 @@ const { Upload } = require ('../models')
 
 module.exports = {
   create: handleUpload,
-  remove: removeUpload, 
-  update: updateUpload,
 }
 
 async function handleUpload(req, res) {

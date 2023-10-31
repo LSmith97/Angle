@@ -1,4 +1,5 @@
 import "./PostForm.css";
+import UploadForm from "../UploadForm"
 
 function PostForm({ submit, formData, setFormData }) {
   function handleChange(event) {
@@ -28,7 +29,11 @@ function PostForm({ submit, formData, setFormData }) {
         onChange={handleChange}
         required
       ></textarea>
-
+    <UploadForm 
+      id="upload"
+      name="upload"
+      value={formData.upload}
+      />
       <button type="submit">Submit</button>
     </form>
   );

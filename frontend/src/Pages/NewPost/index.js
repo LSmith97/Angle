@@ -7,6 +7,7 @@ function NewPost() {
   const [formData, setFormData] = useState({
     title: "",
     body: "",
+    uploads: [],
   }); 
 
   const navigate = useNavigate();

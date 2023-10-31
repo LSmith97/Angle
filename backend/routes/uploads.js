@@ -16,6 +16,6 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage });
 
-router.post('/posts/:id/uploads/', upload.single('file'), uploadsCtl.create);
+router.post('/posts/:id/uploads/multi', upload.array('file', "6"), uploadsCtl.create);
 
 module.exports = router;

@@ -8,9 +8,6 @@ module.exports = {
 
 async function create(req, res) {
     const commentData = { ...req.body }
-    // commentData.user = req.user._id;
-    // commentData.userName = req.user.name;
-    // commentData.userAvatar = req.user.avatar;
     try {
         const parent = await Post.findById(req.params.id)
         commentData.parentId = parent._id

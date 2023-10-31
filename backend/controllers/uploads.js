@@ -1,6 +1,6 @@
 const cloudinary = require("cloudinary").v2;
 const streamifier = require("streamifier");
-const { clConfig } = require("../config/cloudinary.js");
+const { clConfig } = require("../config/cloudinary.connection.js")
 const { Upload } = require ('../models')
 console.log(clConfig)
 

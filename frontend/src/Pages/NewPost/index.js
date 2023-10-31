@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router";
 import PostForm from "../../Components/PostForm";
 import { createPost } from "../../Utilities/post-service";
+import UploadForm from "../../Components/UploadForm"
 
 function NewPost() {
   const [formData, setFormData] = useState({
@@ -24,6 +25,7 @@ function NewPost() {
 
   return (
       <PostForm submit={handleSubmit} formData={formData} setFormData={setFormData} />
+
   );
 }
 

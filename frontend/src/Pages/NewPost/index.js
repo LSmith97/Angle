@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import PostForm from "../../Components/PostForm";
 import { createPost } from "../../Utilities/post-service";
@@ -25,19 +25,18 @@ function NewPost() {
     }
   }
 
-  return (
-    <>
-      {!isLoading && isAuthenticated ? (
-        <PostForm
-          submit={handleSubmit}
-          formData={formData}
-          setFormData={setFormData}
-        />
-      ) : (
-        <LoginPrompt />
-      )}
-    </>
-  );
+  function loaded() {
+    return (
+      <PostForm
+        submit={handleSubmit}
+        formData={{...formData}}
+        setFormData={setFormData}
+        user={user}
+      />
+    );
+  }
+
+  return !isLoading && isAuthenticated ? loaded() : <LoginPrompt />;
 }
 
 export default NewPost;

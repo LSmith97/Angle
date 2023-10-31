@@ -22,7 +22,7 @@ function Posts() {
 
     function loaded() {
         const postEles = postList.map((post) => {
-            return <Link to={`/posts/${post._id}`} ><PostContainer key={post._id} post={post} /></Link>
+            return <Link to={`/posts/${post._id}`} key={post._id} ><PostContainer key={post._id} post={post} /></Link>
         });
 
         return(

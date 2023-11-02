@@ -6,12 +6,14 @@ module.exports = {
   create,
   remove,
   update: updatePost,
-  //   allPosts,
 };
 
 async function index(req, res) {
   try {
-    const results = await Post.find({}).sort({ createdAt: -1 }).limit(5);
+    const results = await Post.find({})
+      .sort({ createdAt: -1 })
+      .limit(10)
+      .populate("user");
     res.json(results);
   } catch (error) {
     res.status(400).json(error);
@@ -20,8 +22,9 @@ async function index(req, res) {
 
 async function show(req, res, next) {
   try {
-    const post = await Post.findById(req.params.id).populate("comments");
-    //   const allComments = await Comment.find({parentId: post._id})
+    const post = await Post.findById(req.params.id)
+      .populate("comments")
+      .populate("user");
     res.json(post);
   } catch (error) {
     res.status(400).json(error);
@@ -47,7 +50,7 @@ async function create(req, res) {
       user = await User.create(postData.user);
     }
     postData.user = user._id;
-    console.log(postData)
+    console.log(postData);
     res.json(await Post.create(postData));
   } catch (error) {
     res.status(400).json(error);
@@ -69,17 +72,3 @@ async function updatePost(req, res) {
     res.status(400).json(error);
   }
 }
-
-// async function allPosts(req, res) {
-//   try {
-//     const POSTS_PER_PAGE = 10;
-//     const pageNum = Number(req.params.pageNum);
-//     const results = await Post.find({})
-//       .sort({ createdAt: -1 })
-//       .limit(POSTS_PER_PAGE)
-//       .skip((pageNum - 1) * POSTS_PER_PAGE);
-//     res.json();
-//   } catch (err) {
-//     res.status(400).json(error);
-//   }
-// }

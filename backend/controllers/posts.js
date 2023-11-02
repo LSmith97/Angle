@@ -6,7 +6,7 @@ module.exports = {
   create,
   remove,
   update: updatePost,
-//   allPosts,
+  //   allPosts,
 };
 
 async function index(req, res) {
@@ -32,7 +32,7 @@ async function remove(req, res) {
   try {
     const deletedPost = await Post.deleteOne({ _id: req.params.id });
     await Comment.deleteMany({ parentId: req.params.id });
-    res.json(deletedPost)
+    res.json(deletedPost);
   } catch (error) {
     res.status(400).json(error);
   }
@@ -40,9 +40,15 @@ async function remove(req, res) {
 
 async function create(req, res) {
   const postData = { ...req.body };
-  console.log(postData)
+
   try {
-    res.json(await Post.create(postData))
+    const user = await User.findOne({ sub: postData.user.sub });
+    if (!user) {
+      user = await User.create(postData.user);
+    }
+    postData.user = user._id;
+    console.log(postData)
+    res.json(await Post.create(postData));
   } catch (error) {
     res.status(400).json(error);
   }
@@ -58,7 +64,7 @@ async function updatePost(req, res) {
       editedPost[key] = postData[key];
     }
     editedPost.save();
-    res.json(editedPost)
+    res.json(editedPost);
   } catch (error) {
     res.status(400).json(error);
   }

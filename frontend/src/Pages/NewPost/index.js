@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router";
 import PostForm from "../../Components/PostForm";
 import { createPost } from "../../Utilities/post-service";
@@ -17,8 +17,8 @@ function NewPost() {
   async function handleSubmit(event) {
     event.preventDefault();
     try {
-      await createPost({...formData, user});
-      navigate(`/`);
+      await createPost({ ...formData, user });
+      navigate("/");
     } catch (error) {
       console.log(error);
       navigate("/posts/new");
@@ -29,7 +29,7 @@ function NewPost() {
     return (
       <PostForm
         submit={handleSubmit}
-        formData={{...formData}}
+        formData={{ ...formData }}
         setFormData={setFormData}
       />
     );

@@ -52,12 +52,11 @@ async function create(req, res) {
   const postData = { ...req.body };
 
   try {
-    const user = await User.findOne({ sub: postData.user.sub });
+    let user = await User.findOne({ sub: postData.user.sub });
     if (!user) {
       user = await User.create(postData.user);
     }
     postData.user = user._id;
-    console.log(postData);
     res.json(await Post.create(postData));
   } catch (error) {
     res.status(400).json(error);

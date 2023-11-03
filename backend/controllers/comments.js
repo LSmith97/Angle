@@ -8,15 +8,14 @@ module.exports = {
 
 async function create(req, res) {
   const commentData = { ...req.body };
-  console.log(commentData);
+ 
   try {
     // Check for user, if none found, create one
-    const user = await User.findOne({ sub: commentData.user.sub });
+    let user = await User.findOne({ sub: commentData.user.sub });
     if (!user) {
-      user = await User.create(postData.user);
+      user = await User.create(commentData.user);
     }
     commentData.user = user._id;
-    
     // Create the comment, add it to the parent post, and save
     const parent = await Post.findById(commentData.parentId);
     const createdComment = await Comment.create(commentData);

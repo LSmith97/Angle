@@ -16,7 +16,8 @@
     width: 100%;
     gap: .5rem; 
     border-bottom: 1px solid black;
-    font-size: .75rem; 
+    font-size: .75rem;
+    padding: .5rem;
 }
 
 .comment-footer { 
@@ -26,7 +27,8 @@
     gap: calc(50% - 11em * .75);; 
     width: 100%; 
     border-top: 1px solid black;
-    font-size: .75rem; 
+    font-size: .75rem;
+    padding: .5rem;
 }
 
 .comment-body {

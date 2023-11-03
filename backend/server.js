@@ -18,7 +18,6 @@ const multer = require("multer")
 const postsRouter = require('./routes/posts.js')
 const usersRouter = require('./routes/users.js')
 const commentsRouter = require('./routes/comments.js')
-const uploadsRouter = require ('./routes/uploads.js')
 const indexRouter = require('./routes/index.js')
 
 ///////////////////////////////
@@ -36,7 +35,6 @@ app.use(morgan("dev"));
 
 app.use('/posts', postsRouter)
 app.use('/comments', commentsRouter)
-app.use('/uploads', uploadsRouter)
 app.use('/users', usersRouter)
 app.use('/', indexRouter)
 

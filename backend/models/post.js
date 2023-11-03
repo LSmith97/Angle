@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema; 
 
-const imageSchema = new mongoose.Schema({
+const uploadSchema = new mongoose.Schema({
     url: {type: String, required: true},
     description: { type: String},
     alt: {type: String, default:""} 

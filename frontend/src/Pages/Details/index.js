@@ -32,7 +32,9 @@ function Details() {
       <div className="details-page">
         <PostContainer post={postDetails} />
         {!isLoading && isAuthenticated ? <CommentForm user={user} /> : null}
-        {postDetails.comments.length ? <CommentList comment={postDetails.comments} /> : null}
+        {postDetails.comments.length ? (
+          <CommentList comments={postDetails.comments} />
+        ) : null}
       </div>
     );
   }

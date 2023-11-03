@@ -11,4 +11,4 @@ function CommentsList({ comments }) {
   );
 }
 
-export default CommentContainer;
+export default CommentsList;

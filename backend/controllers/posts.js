@@ -23,7 +23,14 @@ async function index(req, res) {
 async function show(req, res, next) {
   try {
     const post = await Post.findById(req.params.id)
-      .populate("comments")
+      .populate('comments')
+      .populate({
+        path: "comments",
+        populate: {
+          path: "user",
+          model: "User",
+        },
+      })
       .populate("user");
     res.json(post);
   } catch (error) {

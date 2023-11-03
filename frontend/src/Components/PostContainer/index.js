@@ -1,6 +1,9 @@
 import "./PostContainer.css";
 
 function PostContainer({ post }) {
+  const date = new Date(post.createdAt);
+  const editDate = new Date(post.editedAt);
+
   return (
     <div className="post-container">
       <div className="post-header">
@@ -18,8 +21,14 @@ function PostContainer({ post }) {
       </div>
       <p className="post-body">{post.body}</p>
       <div className="post-footer">
-        <p>Comments</p>
-        <p>Date Added</p>
+        <p>
+          {post.comments.length} Comment{post.comments.length > 1 ? "s" : null}
+        </p>
+        {post.isEdited ? (
+          <p> Edited on {editDate.toDateString}</p>
+        ) : (
+          <p>Posted on {date.toDateString()}</p>
+        )}
       </div>
     </div>
   );

@@ -8,6 +8,7 @@ export async function create(data) {
     },
     body: JSON.stringify(data),
   });
+  console.log(res)
   if (res.ok) {
     return res.json();
   } else {

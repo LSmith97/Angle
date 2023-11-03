@@ -4,7 +4,6 @@ const { clConfig } = require("../config/cloudinary.connection.js")
 console.log(clConfig)
 
 const Post = require('../models/post.js');
-const { UploadStream } = require("cloudinary");
 
 module.exports = { insertUploads };
 
@@ -14,7 +13,6 @@ async function insertUploads(req, res) {
     let result = await streamUpload(req);
     const foundPost = await Post.findById(req.params.id)
     const photoData = {...req.body, url: result.url}
-    // const publicId = result.public_id;
     foundPost.uploads.push(photoData)
     await foundPost.save((err, upload) => {
       if (err) {
@@ -31,6 +29,13 @@ async function insertUploads(req, res) {
 
 function streamUpload(req) {
   return new Promise(function (resolve, reject) {
+    const filename = req.file.originalname.split('.')[0]
+    const altText = req.body.alt.replace(/ /g,'-').toLowerCase()
+    const identifier = `${filename}-${altText}`
+    const uploadConfig = {
+      public_id: identifier,
+      folder: '/angle/assets'
+    }
     let stream = cloudinary.uploader.upload_stream((error, result) => {
       if (result) {
         console.log(result);

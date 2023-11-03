@@ -1,8 +1,11 @@
 import { useState } from "react";
+import { useNavigate } from "react-router";
 import { useParams } from "react-router-dom";
+import { createComment } from "../../Utilities/comment-service";
 
 function CommentForm({ user }) {
   const { id } = useParams();
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     parentId: id,
@@ -14,8 +17,19 @@ function CommentForm({ user }) {
     setFormData({ ...formData, [event.target.name]: event.target.value });
   }
 
+  async function handleSubmit(event) {
+    event.preventDefault();
+    try {
+      await createComment({ ...formData });
+      navigate("/");
+    } catch (error) {
+      console.log(error);
+      navigate(`/posts/{id}`);
+    }
+  }
+
   return (
-    <form className="comment-form">
+    <form className="comment-form" onSubmit={handleSubmit}>
       <textarea
         id="body-input"
         rows="4"

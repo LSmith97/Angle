@@ -1,6 +1,7 @@
 import "./PostForm.css";
 
 function PostForm({ submit, formData, setFormData }) {
+
   function handleChange(event) {
     setFormData({ ...formData, [event.target.name]: event.target.value });
   }
@@ -21,10 +22,10 @@ function PostForm({ submit, formData, setFormData }) {
         id="body-input"
         rows="4"
         cols="25"
-        maxlength="500"
+        maxLength="500"
         name="body"
         value={formData.body}
-        placeholder=" Enter your post here"
+        placeholder="Enter your post here"
         onChange={handleChange}
         required
       ></textarea>

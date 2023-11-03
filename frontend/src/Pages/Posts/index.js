@@ -1,48 +1,42 @@
-import { useEffect, useState } from 'react'
-import { getPosts } from "../../Utilities/post-service"
-import { Link } from "react-router-dom"
-import PostContainer from "../../Components/PostContainer"
-import './Posts.css'
+import { useEffect, useState } from "react";
+import { getPosts } from "../../Utilities/post-service";
+import { Link } from "react-router-dom";
+import PostContainer from "../../Components/PostContainer";
+import "./Posts.css";
 
 function Posts() {
-    const [postList, setPostList] = useState(null)
+  const [postList, setPostList] = useState(null);
 
-    useEffect(()=>{
-        handleRequest();
-    },[])
+  useEffect(() => {
+    handleRequest();
+  }, []);
 
-    async function handleRequest(){
-        try {
-            const postData = await getPosts()
-            setPostList(postData)
-        } catch (err) {
-            console.log(err)
-        }
+  async function handleRequest() {
+    try {
+      const postData = await getPosts();
+      setPostList(postData);
+    } catch (err) {
+      console.log(err);
     }
+  }
 
-    function loaded() {
-        const postEles = postList.map((post) => {
-            return <Link to={`/posts/${post._id}`} ><PostContainer key={post._id} post={post} /></Link>
-        });
+  function loaded() {
+    const postEles = postList.map((post) => {
+      return (
+        <Link to={`/posts/${post._id}`} key={post._id}>
+          <PostContainer key={post._id} post={post} />
+        </Link>
+      );
+    });
 
-        return(
-            <div>
-                {postEles}
-            </div>
-        )
-    }
+    return <>{postEles}</>;
+  }
 
-    function loading(){
-        return(
-            <h1>Loading...</h1>
-        )
-    }
+  function loading() {
+    return <h1>Loading...</h1>;
+  }
 
-    return(
-        <div>
-            {postList ? loaded() : loading()}
-        </div>
-    )
+  return <div className="post-list">{postList ? loaded() : loading()}</div>;
 }
 
-export default Posts
+export default Posts;

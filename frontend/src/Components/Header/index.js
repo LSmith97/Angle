@@ -1,18 +1,30 @@
-import "./Header.css"
+import "./Header.css";
+import LoginButton from "../Auth/LoginButton";
+import LogoutButton from "../Auth/LogoutButton";
+import { useAuth0 } from "@auth0/auth0-react";
+import UserDisplay from "./UserDisplay";
+import { Link } from "react-router-dom";
 
 function Header() {
+  const { user, isAuthenticated, isLoading } = useAuth0();
+
   return (
     <header>
-      <a href="/">
+      <Link to="/">
         <h1>Angle</h1>
-      </a>
+      </Link>
       <nav>
-        <a href="/">
-          <div>Home</div>
-        </a>
-        <a href="/">
-          <div>Log in</div>
-        </a>
+        <Link to="/">
+          <div className="nav-button">Home</div>
+        </Link>
+        {!isLoading && isAuthenticated ? (
+          <>
+            <LogoutButton />
+            <UserDisplay user={user} />
+          </>
+        ) : (
+          <LoginButton />
+        )}
       </nav>
     </header>
   );

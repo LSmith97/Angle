@@ -12,10 +12,9 @@ const postSchema = new Schema(
             max: 500, 
             required: true, 
         }, 
-        upload: [{
-            type: Schema.Types.ObjectId, 
-            ref: 'Upload'
-        }], 
+        uploads: [{
+            type: String, 
+         }], 
         comments: [{
             type: Schema.Types.ObjectId, 
             ref: 'Comment'

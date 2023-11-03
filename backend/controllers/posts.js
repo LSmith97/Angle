@@ -39,10 +39,8 @@ async function remove(req, res) {
 }
 
 async function create(req, res) {
-  const postData = { ...req.body };
-//   postData.user = req.user._id;
-//   postData.userName = req.user.name;
-//   postData.userAvatar = req.user.avatar;
+  const postData = { ...req.body};
+  
   try {
     res.json(await Post.create(postData))
   } catch (error) {

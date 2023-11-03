@@ -8,7 +8,7 @@ function PostContainer({ post }) {
         <p className="post-title">{post.title}</p>
       </div>
       <p className="post-body">{post.body}</p>
-      <div className='post-uploads'> {post.upload} 
+      <div className='post-uploads'> {post.uploads} 
       Insert Pictures here 
       </div>
       <div className="post-footer">

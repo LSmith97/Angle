@@ -1,12 +1,16 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getOne } from "../../Utilities/post-service";
+import { useAuth0 } from "@auth0/auth0-react";
+
 import PostContainer from "../../Components/PostContainer";
 import CommentList from "../../Components/CommentsList";
 import "./Details.css";
+import CommentForm from "./CommentForm";
 
 function Details() {
   const [postDetails, setPostDetails] = useState(null);
+  const { user, isAuthenticated, isLoading } = useAuth0();
 
   const { id } = useParams();
 
@@ -25,9 +29,10 @@ function Details() {
 
   function loaded() {
     return (
-      <div>
+      <div className="details-page">
         <PostContainer post={postDetails} />
-        <CommentList comment={postDetails.comments}/>
+        {!isLoading && isAuthenticated ? <CommentForm user={user} /> : null}
+        {postDetails.comments.length ? <CommentList comment={postDetails.comments} /> : null}
       </div>
     );
   }
@@ -36,9 +41,7 @@ function Details() {
     return <h1>Loading...</h1>;
   }
 
-  return <div>
-    {postDetails ? loaded() : loading()}
-        </div>;
+  return <div>{postDetails ? loaded() : loading()}</div>;
 }
 
 export default Details;

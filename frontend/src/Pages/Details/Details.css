@@ -1,0 +1,29 @@
+.details-page {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.comment-form {
+  display: grid;
+  gap: 15px;
+  grid-template:
+    "body  body " auto
+    ".  button" auto
+    / 1fr 1fr;
+
+  width: 90%;
+  align-self: center;
+  border-radius: 1rem;
+  padding: 2%;
+  border: 2px solid black;
+}
+
+.comment-form textarea {
+  border: 1px solid black;
+  grid-area: body;
+}
+
+.comment-form button {
+  grid-area: button;
+}

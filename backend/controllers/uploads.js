@@ -1,32 +1,44 @@
 const cloudinary = require("cloudinary").v2;
 const streamifier = require("streamifier");
 const { clConfig } = require("../config/cloudinary.connection.js")
-const { Upload } = require ('../models')
 console.log(clConfig)
 
-module.exports = {
-  create: handleUpload,
-}
+const Post = require('../models/post.js');
+const { UploadStream } = require("cloudinary");
 
-async function handleUpload(req, res) {
+module.exports = { insertUploads };
+
+
+async function insertUploads(req, res) {
   try {
-    const result = await cloudinary.uploader.upload(req.file.path);
-    const publicId = result.public_id;
-
-    const newUpload = new Upload({
-      publicId: publicId,
-      user: '', // Set the user information
-      description: '', // Set the description
-    });
-    newUpload.save((err, upload) => {
+    let result = await streamUpload(req);
+    const foundPost = await Post.findById(req.params.id)
+    const photoData = {...req.body, url: result.url}
+    // const publicId = result.public_id;
+    foundPost.uploads.push(photoData)
+    await foundPost.save((err, upload) => {
       if (err) {
         console.error('Error saving to MongoDB:', err);
         return res.status(500).json({ error: 'File upload and save failed' });
       }
-      res.json({ publicId: upload.publicId, user: upload.user, description: upload.description });
+      res.json({ url: upload.url, user: upload.user, description: upload.description });
     });
   } catch (error) {
     console.error('Error uploading to Cloudinary:', error);
     res.status(500).json({ error: 'File upload failed' });
   }
 };
+
+function streamUpload(req) {
+  return new Promise(function (resolve, reject) {
+    let stream = cloudinary.uploader.upload_stream((error, result) => {
+      if (result) {
+        console.log(result);
+        resolve(result);
+      } else {
+        reject(error);
+      }
+    });
+    streamifier.createReadStream(req.file.buffer).pipe(stream);
+  });
+}

@@ -24,7 +24,7 @@ function CommentForm({ user }) {
       navigate("/");
     } catch (error) {
       console.log(error);
-      navigate(`/posts/{id}`);
+      navigate(`/posts/${id}`);
     }
   }
 

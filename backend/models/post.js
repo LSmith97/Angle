@@ -1,6 +1,12 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema; 
 
+const imageSchema = new mongoose.Schema({
+    url: {type: String, required: true},
+    description: { type: String},
+    alt: {type: String, default:""} 
+})
+
 const postSchema = new Schema(
     {
         title: {
@@ -12,9 +18,7 @@ const postSchema = new Schema(
             max: 500, 
             required: true, 
         }, 
-        uploads: [{
-            type: String, 
-         }], 
+        uploads:  [uploadSchema],  
         comments: [{
             type: Schema.Types.ObjectId, 
             ref: 'Comment'

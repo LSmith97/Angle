@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getOne } from "../../Utilities/post-service";
+import { useNavigate } from "react-router";
+import { deletePost, getOne } from "../../Utilities/post-service";
 import { useAuth0 } from "@auth0/auth0-react";
 import { Link } from "react-router-dom";
 
@@ -14,6 +15,7 @@ function Details() {
   const { user, isAuthenticated, isLoading } = useAuth0();
 
   const { id } = useParams();
+  const navigate = useNavigate()
 
   useEffect(() => {
     handleRequest();
@@ -28,21 +30,31 @@ function Details() {
     }
   }
 
+  async function handleDelete() {
+    try {
+      const res = await deletePost(id)
+      navigate('/')
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
   function loaded() {
     return (
       <div className="details-page">
         <PostContainer post={postDetails} />
+
         {isAuthenticated && user.sub === postDetails.user.sub ? (
           <div className="details-buttons">
             <Link to="edit">
               <button>Edit</button>
             </Link>
-            <Link to='delete'>
-              <button>Delete</button>
-            </Link>
+            <button onClick={handleDelete}>Delete</button>
           </div>
         ) : null}
+
         {!isLoading && isAuthenticated ? <CommentForm user={user} /> : null}
+
         {postDetails.comments.length ? (
           <CommentList comments={postDetails.comments} />
         ) : null}

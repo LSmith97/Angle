@@ -1,7 +1,5 @@
 const express = require("express");
 const router = express.Router();
-const uploadsCtl = require("../controllers/uploads");
-const multer = require('multer');
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -16,6 +14,5 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage });
 
-router.post('/posts/:id/uploads/multi', upload.array('uploads', "6"), uploadsCtl.create);
 
 module.exports = router;

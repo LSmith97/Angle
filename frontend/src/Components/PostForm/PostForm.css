@@ -1,26 +1,33 @@
-.post-form { 
-    display: grid;
-    gap: 15px; 
-    grid-template: 
-      "title title " auto
-      "body  body " auto
-      ".  button" auto
-    /1fr 1fr;
-    border-radius: 1rem;
-    padding: 2%;
-    border: 2px solid black;
+.post-form {
+  display: grid;
+  gap: 15px;
+  grid-template:
+    "title title " auto
+    "body  body " auto
+    ".  button" auto
+    / 1fr 1fr;
+  border-radius: 1rem;
+  padding: 2%;
+  border: 2px solid black;
 }
 
 .post-form input {
-    border: 1px solid black;
-    grid-area: title;
+  border: 1px solid black;
+  grid-area: title;
+  padding: 0 .5rem 0 .5rem
 }
 
-.post-form textarea{
-    border: 1px solid black;
-    grid-area: body;
+.post-form textarea {
+  border: 1px solid black;
+  grid-area: body;
+  padding: .5rem;
 }
 
 .post-form button {
-    grid-area: button;
+  justify-self: flex-end;
+  grid-area: button;
+  border: 1px solid black;
+  padding: 0.5rem;
+  width: 8rem;
+  border-radius: 0.5rem;
 }

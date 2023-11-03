@@ -21,9 +21,15 @@
 
 .comment-form textarea {
   border: 1px solid black;
+  padding: .5rem;
   grid-area: body;
 }
 
 .comment-form button {
+  justify-self: flex-end;
   grid-area: button;
+  border: 1px solid black;
+  padding: 0.5rem;
+  width: 8rem;
+  border-radius: 0.5rem;
 }

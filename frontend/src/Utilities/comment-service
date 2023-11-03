@@ -1,0 +1,10 @@
+import * as commentAPI from "./comment-api";
+
+export async function createComment(data) {
+  try {
+    const newComment = await commentAPI.create(data);
+    return newComment;
+  } catch (err) {
+    throw err;
+  }
+}

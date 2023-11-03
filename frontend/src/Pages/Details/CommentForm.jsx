@@ -23,7 +23,7 @@ function CommentForm({ user }) {
         maxLength="500"
         name="body"
         value={formData.body}
-        placeholder="Leave a commment"
+        placeholder="Leave a comment"
         onChange={handleChange}
         required
       ></textarea>

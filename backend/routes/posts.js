@@ -12,7 +12,7 @@ router.get('/', postCtl.index);
 // router.get('/pages/:pageNum', postCtl.allPosts)
 router.get('/:id', postCtl.show);
 router.post('/', postCtl.create);
-router.post('/posts/:id/uploads/', upload.array('uploads', "6"), uploadsCtl.insertUploads);
+router.post('/:id/uploads', upload.array('uploads', "6"), uploadsCtl.insertUploads);
 router.delete('/:id', postCtl.remove);
 router.put('/:id', postCtl.update);
 

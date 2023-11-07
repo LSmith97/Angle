@@ -2,10 +2,10 @@ import "./PostForm.css";
 import { useState } from "react";
 import Dropzone from "react-dropzone";
 
-function PostForm({ submit, formData, setFormData }) {
+function PostForm({ submit, formData, setFormData, uploadsData, setUploadsData }) {
   const handleDrop = (droppedFiles) => {
     // Handle the dropped files here
-    setFormData({ ...formData, uploads: [...droppedFiles, ...formData.uploads] });
+    setUploadsData([...uploadsData, ...droppedFiles]);
   };
 
   function handleChange(event) {
@@ -45,7 +45,7 @@ function PostForm({ submit, formData, setFormData }) {
             </div>
           )}
         </Dropzone>
-        {formData.uploads.map((upload, index) => (
+        {uploadsData.map((upload, index) => (
           <div key={index}>
             {upload.name} - {upload.size} bytes
           </div>

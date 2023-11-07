@@ -5,7 +5,7 @@ function CommentsList({ comments }) {
   return (
     <>
       {comments.map((comment) => (
-        <CommentContainer key={comment.id} comment={comment} />
+        <CommentContainer key={comment._id} comment={comment} />
       ))}
     </>
   );

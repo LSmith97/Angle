@@ -6,7 +6,7 @@ function CommentContainer({ comment }) {
   const editDate = new Date(comment.editedAt)
 
   return (
-    <div className="comment-container">
+    <div  className="comment-container">
       <div className="comment-header">
         <img
           className="h-10 w-10 rounded-full"

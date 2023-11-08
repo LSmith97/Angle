@@ -18,6 +18,7 @@ function PostContainer({ post }) {
       console.log(err);
     }
   }
+
   return (
     <div className="post-container">
       <div className="post-header">
@@ -36,7 +37,7 @@ function PostContainer({ post }) {
       <p className="post-body">{post.body}</p>
       <div className="post-footer">
         <div className="footer-buttons">
-      {isAuthenticated && user.sub === post.user.sub ? (
+      {isAuthenticated && user.sub === post.user?.sub ? (
           <>
             <Link to={`/posts/${post._id}/edit`}>
               <button>Edit</button>

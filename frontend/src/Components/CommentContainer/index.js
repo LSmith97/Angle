@@ -1,12 +1,24 @@
 import { useAuth0 } from "@auth0/auth0-react";
-import "./CommentContainer.css";
+import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
+import { deleteComment } from "../../Utilities/comment-service";
+import "./CommentContainer.css";
 
 function CommentContainer({ comment }) {
   const { user, isAuthenticated, isLoading } = useAuth0();
+  const navigate = useNavigate()
 
   const date = new Date(comment.createdAt);
   const editDate = new Date(comment.updatedAt);
+
+  async function handleDelete() {
+    try {
+      const res = await deleteComment(comment._id)
+      window.location.reload()
+    } catch (err) {
+      console.log(err);
+    }
+  }
 
   return (
     <div className="comment-container">
@@ -26,7 +38,7 @@ function CommentContainer({ comment }) {
               <Link to={`/comments/${comment._id}/edit`}>
                 <p>Edit</p>
               </Link>
-              <button>Delete</button>
+              <button onClick={handleDelete}>Delete</button>
             </>
           ) : null}
         </div>

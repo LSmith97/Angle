@@ -21,10 +21,10 @@ function CommentForm({ user }) {
     event.preventDefault();
     try {
       await createComment({ ...formData });
-      navigate("/");
+      window.location.reload();
     } catch (error) {
       console.log(error);
-      navigate(`/posts/${id}`);
+      window.location.reload();
     }
   }
 

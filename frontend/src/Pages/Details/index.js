@@ -30,28 +30,10 @@ function Details() {
     }
   }
 
-  async function handleDelete() {
-    try {
-      const res = await deletePost(id)
-      navigate('/')
-    } catch (err) {
-      console.log(err);
-    }
-  }
-
   function loaded() {
     return (
       <div className="details-page">
         <PostContainer post={postDetails} />
-
-        {isAuthenticated && user.sub === postDetails.user.sub ? (
-          <div className="details-buttons">
-            <Link to="edit">
-              <button>Edit</button>
-            </Link>
-            <button onClick={handleDelete}>Delete</button>
-          </div>
-        ) : null}
 
         {!isLoading && isAuthenticated ? <CommentForm user={user} /> : null}
 

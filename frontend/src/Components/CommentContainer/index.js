@@ -6,7 +6,7 @@ function CommentContainer({ comment }) {
   const { user, isAuthenticated, isLoading } = useAuth0();
 
   const date = new Date(comment.createdAt);
-  const editDate = new Date(comment.editedAt);
+  const editDate = new Date(comment.updatedAt);
 
   return (
     <div className="comment-container">
@@ -26,7 +26,7 @@ function CommentContainer({ comment }) {
           </Link>
         ) : null}
         {comment.isEdited ? (
-          <p> Edited on {editDate.toDateString}</p>
+          <p> Edited on {editDate.toDateString()}</p>
         ) : (
           <p>Posted on {date.toDateString()}</p>
         )}

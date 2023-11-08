@@ -2,7 +2,7 @@ import "./PostContainer.css";
 
 function PostContainer({ post }) {
   const date = new Date(post.createdAt);
-  const editDate = new Date(post.editedAt);
+  const editDate = new Date(post.updatedAt);
 
   return (
     <div className="post-container">
@@ -25,7 +25,7 @@ function PostContainer({ post }) {
           {post.comments.length} Comment{post.comments.length > 1 ? "s" : null}
         </p>
         {post.isEdited ? (
-          <p> Edited on {editDate.toDateString}</p>
+          <p> Edited on {editDate.toDateString()}</p>
         ) : (
           <p>Posted on {date.toDateString()}</p>
         )}

@@ -20,15 +20,20 @@ function CommentContainer({ comment }) {
       </div>
       <p className="comment-body">{comment.body}</p>
       <div className="comment-footer">
-        {isAuthenticated && user.sub === comment.user.sub ? (
-          <Link to={`/comments/${comment._id}/edit`}>
-            <p>Edit Comment</p>
-          </Link>
-        ) : null}
+        <div className="footer-buttons">
+          {isAuthenticated && user.sub === comment.user.sub ? (
+            <>
+              <Link to={`/comments/${comment._id}/edit`}>
+                <p>Edit</p>
+              </Link>
+              <button>Delete</button>
+            </>
+          ) : null}
+        </div>
         {comment.isEdited ? (
-          <p> Edited on {editDate.toDateString()}</p>
+          <p className="date"> Edited on {editDate.toDateString()}</p>
         ) : (
-          <p>Posted on {date.toDateString()}</p>
+          <p className="date">Posted on {date.toDateString()}</p>
         )}
       </div>
     </div>

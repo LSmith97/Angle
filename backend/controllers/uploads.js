@@ -1,6 +1,7 @@
 const cloudinary = require("cloudinary").v2;
 const streamifier = require("streamifier");
 const { clConfig } = require("../config/cloudinary.connection.js")
+
 console.log(clConfig)
 
 const Post = require('../models/post.js');
@@ -29,13 +30,13 @@ async function insertUploads(req, res) {
 
 function streamUpload(req) {
   return new Promise(function (resolve, reject) {
-    const filename = req.file.originalname.split('.')[0]
-    const altText = req.body.alt.replace(/ /g,'-').toLowerCase()
-    const identifier = `${filename}-${altText}`
-    const uploadConfig = {
-      public_id: identifier,
-      folder: '/angle/assets'
-    }
+    // const filename = req.file.originalname.split('.')[0]
+    // const altText = req.body.alt.replace(/ /g,'-').toLowerCase()
+    // const identifier = `${filename}-${altText}`
+    // const uploadConfig = {
+    //   public_id: identifier,
+    //   folder: '/angle/assets'
+    // }
     let stream = cloudinary.uploader.upload_stream((error, result) => {
       if (result) {
         console.log(result);

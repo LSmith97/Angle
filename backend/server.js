@@ -37,6 +37,7 @@ app.use('/posts', postsRouter)
 app.use('/comments', commentsRouter)
 app.use('/users', usersRouter)
 app.use('/', indexRouter)
+app.use('/post/:id/uploads', postsRouter)
 
 ///////////////////////////////
 // LISTENER

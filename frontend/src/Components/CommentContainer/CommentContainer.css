@@ -23,7 +23,7 @@
     display: flex; 
     justify-content: flex-end;
     align-items: center;
-    gap: calc(50% - 11em * .75);; 
+    gap: calc(50% - 12rem * .75);; 
     width: 100%; 
     border-top: 1px solid black;
     font-size: .75rem;

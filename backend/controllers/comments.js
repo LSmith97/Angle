@@ -4,6 +4,7 @@ module.exports = {
   create,
   remove,
   update: updatePost,
+  show
 };
 
 async function create(req, res) {
@@ -50,6 +51,15 @@ async function updatePost(req, res) {
     }
     editedComment.save();
     res.json(editedComment);
+  } catch (error) {
+    res.status(400).json(error);
+  }
+}
+
+async function show(req, res, next) {
+  try {
+    const comment = await Comment.findById(req.params.id)
+    res.json(comment);
   } catch (error) {
     res.status(400).json(error);
   }

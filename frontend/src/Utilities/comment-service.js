@@ -26,3 +26,12 @@ export async function updateComment(id, data) {
     throw err;
   }
 }
+
+export async function getOne(id) {
+  try {
+    const data = await commentAPI.detail(id);
+    return data;
+  } catch (err) {
+    throw err;
+  }
+}

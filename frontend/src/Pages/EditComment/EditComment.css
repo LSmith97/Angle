@@ -1,0 +1,27 @@
+.edit-comment-form {
+    display: grid;
+    gap: 15px;
+    grid-template:
+      "body  body " auto
+      ".  button" auto
+      / 1fr 1fr;
+    border-radius: 1rem;
+    padding: 2%;
+    border: 2px solid black;
+  }
+  
+  .edit-comment-form textarea {
+    border: 1px solid black;
+    padding: .5rem;
+    grid-area: body;
+  }
+  
+  .edit-comment-form button {
+    justify-self: flex-end;
+    grid-area: button;
+    border: 1px solid black;
+    padding: 0.5rem;
+    width: 8rem;
+    border-radius: 0.5rem;
+  }
+  

@@ -35,21 +35,23 @@ function PostContainer({ post }) {
       </div>
       <p className="post-body">{post.body}</p>
       <div className="post-footer">
+        <div className="footer-buttons">
       {isAuthenticated && user.sub === post.user.sub ? (
-          <div className="footer-buttons">
+          <>
             <Link to={`/posts/${post._id}/edit`}>
               <button>Edit</button>
             </Link>
             <button >Delete</button>
-          </div>
+          </>
         ) : null}
-        <p>
+        </div>
+        <p className="comments">
           {post.comments.length} Comment{post.comments.length > 1 ? "s" : null}
         </p>
         {post.isEdited ? (
-          <p> Edited on {editDate.toDateString()}</p>
+          <p className="date"> Edited on {editDate.toDateString()}</p>
         ) : (
-          <p>Posted on {date.toDateString()}</p>
+          <p className="date"> Posted on {date.toDateString()}</p>
         )}
       </div>
     </div>

@@ -1,8 +1,8 @@
 import { useParams, useNavigate } from "react-router";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import "./EditComment.css";
-import { updateComment } from "../../Utilities/comment-service";
+import { getOne, updateComment } from "../../Utilities/comment-service";
 
 function EditComment() {
   const { id } = useParams();
@@ -19,14 +19,24 @@ function EditComment() {
     event.preventDefault();
     try {
       await updateComment(id, formData);
-      navigate("/");
+      navigate(`/posts/${formData.parentId}`);
     } catch (error) {
       console.log(error);
-      navigate(`/posts/${id}`);
+      navigate(`/comments/${id}/edit`);
     }
   }
+
+  useEffect(() => {
+    handleRequest();
+  }, []);
+
   async function handleRequest() {
-    
+    try {
+      const commentData = await getOne(id);
+      setFormData(commentData);
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   function loaded() {

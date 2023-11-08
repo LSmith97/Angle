@@ -7,6 +7,7 @@ export async function create(id, data) {
       headers: {
         "Content-Type": "application/json",
       },
+      enctype: "multipart/form-data",
       body: JSON.stringify(data),
     });
      if (res.ok) {

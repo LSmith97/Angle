@@ -36,8 +36,11 @@ function PostForm({ submit, formData, setFormData, uploadsData, setUploadsData }
         required
       ></textarea>
 
-      <div>
-        <Dropzone onDrop={handleDrop}>
+      <div> 
+
+
+
+        <Dropzone onDrop={handleDrop} id="fileUploads" type='files' name='fileUploads'>
           {({ getRootProps, getInputProps }) => (
             <div {...getRootProps()}>
               <input {...getInputProps()} />
@@ -47,7 +50,9 @@ function PostForm({ submit, formData, setFormData, uploadsData, setUploadsData }
         </Dropzone>
         {uploadsData.map((upload, index) => (
           <div key={index}>
-            {upload.name} - {upload.size} bytes
+            {upload.name} - {upload.size} bytes 
+
+
           </div>
         ))}
       </div>

@@ -41,7 +41,7 @@ function PostContainer({ post }) {
             <Link to={`/posts/${post._id}/edit`}>
               <button>Edit</button>
             </Link>
-            <button >Delete</button>
+            <button onClick={handleDelete}>Delete</button>
           </>
         ) : null}
         </div>

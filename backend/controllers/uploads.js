@@ -7,8 +7,8 @@ const Post = require('../models/post.js');
 
 module.exports = { insertUploads };
 
-function streamUpload(req) {
-  return new Promise(function (resolve, reject) {
+function streamUpload(req) { 
+  return new Promise(function (resolve, reject) { 
     let stream = cloudinary.uploader.upload_stream((error, result) => {
       if (result) {
         console.log(result);
@@ -22,6 +22,7 @@ function streamUpload(req) {
 }
 
 async function insertUploads(req, res) {
+  console.log(req)
   try {
     let result = await streamUpload(req);
     const foundPost = await Post.findById(req.params.id)

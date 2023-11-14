@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
 import PostForm from "../../Components/PostForm";
+import UploadForm from "../../Components/UploadForm";
 import { createPost } from "../../Utilities/post-service";
 import { useAuth0 } from "@auth0/auth0-react";
 import LoginPrompt from "../../Components/Auth/LoginPrompt/LoginPrompt";
@@ -27,11 +28,14 @@ function NewPost() {
 
   function loaded() {
     return (
-      <PostForm
-        submit={handleSubmit}
-        formData={{ ...formData }}
-        setFormData={setFormData}
-      />
+      <>
+        <PostForm
+          submit={handleSubmit}
+          formData={{ ...formData }}
+          setFormData={setFormData}
+        />
+        <UploadForm/>
+      </>
     );
   }
 

@@ -1,4 +1,4 @@
-const BASE_URL = 'https://api.cloudinary.com/v1_1/$%7Bangle-uploads%7D/upload'
+const BASE_URL = 'https://api.cloudinary.com/v1_1/angle-uploads/image/upload'
 
 export async function create(data) {
     const res = await fetch(BASE_URL, {

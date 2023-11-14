@@ -1,12 +1,25 @@
 import "./PostForm.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Dropzone from "react-dropzone";
+import {createUploads} from "../../Utilities/cloudinary-service"
 function PostForm({ submit, formData, setFormData, uploadsData, setUploadsData }) {
 
   const handleDrop = (droppedFiles) => {
     // Handle the dropped files here
     setUploadsData([...uploadsData, ...droppedFiles]);
   };
+useEffect(()=>{handleUploads()}, [uploadsData])
+
+async function handleUploads() { 
+      try  { 
+      const res =  await createUploads(uploadsData) 
+      console.log(res)
+      } 
+      catch (err) {
+
+      } 
+
+  }
 
   function handleChange(event) {
     setFormData({ ...formData, [event.target.name]: event.target.value });

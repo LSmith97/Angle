@@ -1,13 +1,11 @@
 const UserDisplay = ({ user }) => {
   return (
-    <div className="user-display">
-      <h3>Signed in as:</h3>
+    <div className="user-display ml-auto">
       <img
-        className="h-10 w-10 rounded-full"
+        className="ml-16 h-10 w-10 rounded-full"
         src={user.picture}
         alt={user.name}
       />
-      <h3>{user.name}</h3>
     </div>
   );
 };

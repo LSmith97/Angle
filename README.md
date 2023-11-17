@@ -8,7 +8,7 @@
 ###### Inspired by Mingo, a project by Joshua Hsu, Harkirat Singh, and Lily Smith
 
 Joshua Hsu: [GitHub](https://github.com/jhsu79) | [LinkedIn](https://www.linkedin.com/in/joshuanhsu) |
-Harkirat Singh: [GitHub](https://github.com/harkirats043) | [LinkedIn](https://www.linkedin.com/in/harkirat-singh-hanzra/) |  
+
 Lily Smith: [GitHub](https://github.com/LSmith97) | [LinkedIn](https://www.linkedin.com/in/lilliana-r-smith/) |
 
 ## Screenshot(s)

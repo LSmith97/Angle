@@ -11,16 +11,16 @@ function Header() {
   return (
     <header>
       <Link to="/">
-        <h1>Angle</h1>
+        <h1 className='bg-white text-purple text-xl hover:cursor-pointer '>ANGLE</h1>
       </Link>
       <nav>
         <Link to="/">
-          <div className="nav-button">Home</div>
+          <div className=" text-purple font-bold nav-button hover:cursor-pointer">Home</div>
         </Link>
         {!isLoading && isAuthenticated ? (
           <>
-            <LogoutButton />
             <UserDisplay user={user} />
+            <LogoutButton />
           </>
         ) : (
           <LoginButton />

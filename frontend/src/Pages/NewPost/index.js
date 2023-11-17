@@ -11,7 +11,6 @@ function NewPost() {
     title: "",
     body: "",
   });
-  const [uploadsData, setUploadsData]  = useState([])
 
   const navigate = useNavigate();
 
@@ -32,8 +31,6 @@ function NewPost() {
         submit={handleSubmit}
         formData={{ ...formData }}
         setFormData={setFormData}
-        uploadsData={uploadsData} 
-        setUploadsData={setUploadsData} 
       />
     );
   }
